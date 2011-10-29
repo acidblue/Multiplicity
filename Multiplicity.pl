@@ -124,7 +124,7 @@ opendir(DD, $dd);
 while (my $file = readdir(DD)) {
 	print "$file\n" if $file !~ /^\./ ;  #Comment out before the 'if' if you want to list everything in the current directory
 }
-
+#Print final message and list files
 if ($count >= $nc){                         #Probably could've left out the 'if' and just use 'print' but figured it might be good practice to include it
 		print ("\nDone..\n");
 		print ("Check above list for your files, they will be listed as '(x)filename.ext'\n");
