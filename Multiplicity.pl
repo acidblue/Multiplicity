@@ -36,7 +36,7 @@ print "@stars\n";
 sub list_files{
 opendir(SD, $sd);
 while (my $file = readdir(SD)){
-	print "$file\n" if $file !~ /^\./ ;    # Comment out after the 'if' if you want to list everything in the current directory
+	print "$file\n" if $file !~ /^\./ ;    # Comment out before the 'if' if you want to list everything in the current directory
 }
 }
 #End function
@@ -62,7 +62,7 @@ if (opendir(SD, $sd)) {		               #If path is correct then procede
 	chomp($sf) 			          #Remove \n character
 }
 else { 				              #If path is not correct print error messg and restart function
-	print("******No such directory, please check the path and try again******\n");
+	print("\n******No such directory, please check the path and try again******\n");
 	source_dir();
 }
 
@@ -72,7 +72,7 @@ if (open(SF, $sf)) { 		                #If file name is correct then procede to 
 	$nc=<STDIN>; 			               #User inputs # of copies to make
 }
 else { 				                      #If file name is not correct then...
-	print("******Cannot find file, please check file name and re-submitt******\n");
+	print("\n******Cannot find file, please check file name and re-submitt******\n");
 	source_dir(); 			              # Re-run function to get file name
 }
 }
@@ -89,7 +89,7 @@ if (opendir(DD, $dd)){							                        #Open destination directory
 	print "Your files have been saved to directory:", $dd, "\n";
 }
 else {
-	print("No such directory, please re-start and try again\n");        #Re-run function if path is incorrect
+	print("\nNo such directory, please re-start and try again\n");        #Re-run function if path is incorrect
 	des_dir();
 }
 
@@ -122,11 +122,16 @@ chdir $dd;
 #List files copied to destination folder
 opendir(DD, $dd);
 while (my $file = readdir(DD)) {
-	print "$file\n" if $file !~ /^\./ ;  #Uncomment after 'if' to leave out files with "." and ".." other wise as is, it will list everthing in folder 
+	print "$file\n" if $file !~ /^\./ ;  #Comment out before the 'if' if you want to list everything in the current directory
 }
 
-print "\nSuccess!\n";
-print "Check above list for your files, they will be listed as '(x)filename.ext'\n";
+if ($count >= $nc){                         #Probably could've left out the 'if' and just use 'print' but figured it might be good practice to include it
+		print ("\nDone..\n");
+		print ("Check above list for your files, they will be listed as '(x)filename.ext'\n");
+}
+
+
+
 
 #Close File and Dir handlers
 closedir(DD);
