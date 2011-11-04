@@ -1,2 +1,12 @@
 Multiplicity perl Script for making multiple copies of a file.
+Should work for Windows and Linux
+Been tested on Win XP and Ubuntu 10.10
+
+Just do>> perl -w name_of_script.pl
+in a termianl window and follow the screen prompts.
+
+I am currently working on a GUI version using Perl/Tk
+but that is in early alpha and not ready for prime time.
+
+acidblue 11/04/2011
 
